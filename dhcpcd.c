@@ -323,8 +323,8 @@ send_message(struct interface *iface, int type,
 			state->interval = 4;
 		else {
 			state->interval *= 2;
-			if (state->interval > 64)
-				state->interval = 64;
+			if (state->interval > 32)
+				state->interval = 32;
 		}
 		tv.tv_sec = state->interval + DHCP_RAND_MIN;
 		tv.tv_usec = arc4random() % (DHCP_RAND_MAX_U - DHCP_RAND_MIN_U);
